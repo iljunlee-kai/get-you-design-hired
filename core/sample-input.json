@@ -1,0 +1,123 @@
+{
+  "roles": [
+    "서비스 기획",
+    "PM",
+    "데이터 분석"
+  ],
+  "max_adjacent": 2,
+  "min_per_role": 2,
+  "hold_below": 60,
+  "jobs": [
+    {
+      "id": "J1",
+      "title": "Product Owner",
+      "company": "Sample A",
+      "impact": 9,
+      "confidence": 7,
+      "ease": 6,
+      "role": "PM",
+      "track": "target",
+      "reason": "샘플"
+    },
+    {
+      "id": "J2",
+      "title": "Product Manager",
+      "company": "Sample B",
+      "impact": 8,
+      "confidence": 6,
+      "ease": 7,
+      "role": "PM",
+      "track": "target",
+      "reason": "샘플"
+    },
+    {
+      "id": "J3",
+      "title": "UX Strategist",
+      "company": "Sample C",
+      "impact": 7,
+      "confidence": 8,
+      "ease": 6,
+      "role": "서비스 기획",
+      "track": "target",
+      "reason": "샘플"
+    },
+    {
+      "id": "J4",
+      "title": "Service Planner",
+      "company": "Sample D",
+      "impact": 6,
+      "confidence": 7,
+      "ease": 8,
+      "role": "서비스 기획",
+      "track": "target",
+      "reason": "샘플"
+    },
+    {
+      "id": "J5",
+      "title": "Growth PM",
+      "company": "Sample E",
+      "impact": 8,
+      "confidence": 5,
+      "ease": 5,
+      "role": "PM",
+      "track": "target",
+      "reason": "샘플"
+    },
+    {
+      "id": "J6",
+      "title": "Data Analyst",
+      "company": "Sample F",
+      "impact": 7,
+      "confidence": 5,
+      "ease": 6,
+      "role": "데이터 분석",
+      "track": "target",
+      "reason": "샘플"
+    },
+    {
+      "id": "J7",
+      "title": "Business Analyst",
+      "company": "Sample G",
+      "impact": 5,
+      "confidence": 6,
+      "ease": 7,
+      "role": "데이터 분석",
+      "track": "target",
+      "reason": "샘플"
+    },
+    {
+      "id": "J8",
+      "title": "Growth Marketer",
+      "company": "Sample H",
+      "impact": 5,
+      "confidence": 8,
+      "ease": 8,
+      "role": "마케팅",
+      "track": "adjacent",
+      "reason": "샘플"
+    },
+    {
+      "id": "J9",
+      "title": "Performance Marketer",
+      "company": "Sample I",
+      "impact": 4,
+      "confidence": 8,
+      "ease": 7,
+      "role": "마케팅",
+      "track": "adjacent",
+      "reason": "샘플"
+    },
+    {
+      "id": "J10",
+      "title": "Operations Associate",
+      "company": "Sample J",
+      "impact": 3,
+      "confidence": 5,
+      "ease": 4,
+      "role": "서비스 기획",
+      "track": "target",
+      "reason": "샘플"
+    }
+  ],
+  "adjacent_roles": []
+}

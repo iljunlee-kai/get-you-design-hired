@@ -1,0 +1,55 @@
+# 지역별 허용 공고 소스 목록
+# 검색은 이 목록 안에서만 한다. 사이트를 추가/삭제할 때는 이 파일만 고친다.
+#
+# status:
+#   untested  = 아직 실제 접근 테스트 전 docs/source-test.md로 테스트한다.
+#   ok        = AI 검색/열람이 확인됨 (상세 페이지의 게시일·마감을 읽을 수 있음)
+#   partial   = 검색 결과·제목은 보이나 상세(게시일/마감)는 일부만 읽힘
+#   blocked   = 로그인 벽·차단으로 읽히지 않음 → 사용자 URL 붙여넣기 경로로만 사용
+#
+# 모든 status는 실제 테스트 후 갱신한다. 지금 값은 가정이 아니라 "미확인"이다.
+
+version: 2
+active_regions: [KR]       # 지금은 한국만 지원. 다른 지역은 deferred_regions에 보관
+max_candidates: 30
+final_count: 10
+paste_url_fallback: true   # 검색이 막히면 사용자 URL 붙여넣기를 정식 경로로 사용
+
+regions:
+  KR:
+    label: 한국
+    # 순서 = 시도 순서. 테스트 결과로 재정렬한다. LinkedIn은 로그인 벽 가능성이 높아 마지막.
+    sources:
+      - name: 원티드
+        domain: wanted.co.kr
+        status: untested
+      - name: 사람인
+        domain: saramin.co.kr
+        status: untested
+      - name: 잡코리아
+        domain: jobkorea.co.kr
+        status: untested
+      - name: 링크드인
+        domain: linkedin.com/jobs
+        status: untested
+        note: 로그인 벽 가능성 높음. 막히면 URL 붙여넣기로만 사용
+      - name: 기업 공식 채용 페이지
+        domain: "*"
+        status: untested
+        note: 위 사이트에서 찾은 공고의 원문 확인용. 검색 소스가 아니라 검증 소스로 사용
+
+# 보류 지역: 한국 경로가 검증된 뒤 되살린다. active_regions에 넣기 전에는 쓰지 않는다.
+deferred_regions:
+  UK:
+    label: 영국
+    sources:
+      - name: LinkedIn
+        domain: linkedin.com/jobs
+        status: untested
+      - name: Indeed UK
+        domain: uk.indeed.com
+        status: untested
+      - name: Reed
+        domain: reed.co.uk
+        status: untested
+    note: 비자 스폰서 여부, 통화 환산(KRW↔GBP) 규칙이 필요하다

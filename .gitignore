@@ -1,0 +1,6 @@
+# 내부 기획 문서는 공개하지 않는다
+docs/PRD.md
+
+# OS / 편집기
+.DS_Store
+*.swp
