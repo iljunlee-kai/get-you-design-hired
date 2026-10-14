@@ -10,8 +10,11 @@
   "jobs": [
     {"id": "A", "title": "...", "company": "...",
      "impact": 8, "confidence": 6, "ease": 7, "reason": "근거 한 줄",
-     "role": "PM", "track": "target"}          # track: target(목표 직군) | adjacent(현재 직무 연장)
+     "role": "PM", "track": "target",          # track: target(목표 직군) | adjacent(현재 직무 연장)
+     "status": "open", "deadline": "2026-10-20"}  # status: open(모집 중 확인) | closed(마감) | unknown(못 읽음)
+                                                   # deadline: YYYY-MM-DD, 상시채용이면 "상시", 못 읽었으면 생략
   ],
+  "today": "2026-10-14",                                   # 선택, 오늘 날짜. 있으면 마감일이 지난 공고를 경고한다
   "roles": ["서비스 기획", "PM"],                          # 선택, 확정된 목표 직군 (직군별 최소 개수 점검용)
   "adjacent_roles": ["그로스 마케터"],                      # 선택, 현재 직무와 같은 계열의 직군. 이 직군 공고가 track=target이면 경고
   "max_adjacent": 2,                                       # 선택, 현재 직무 연장 공고 최대 개수 (기본 2)
@@ -27,6 +30,7 @@
 
 import json
 import sys
+from datetime import date
 
 # 등급 배분 (S 1, A 2, B 3, C 2, D 2). 공고가 10개 미만이면 앞에서부터 사용한다.
 GRADE_SLOTS = ["S"] + ["A"] * 2 + ["B"] * 3 + ["C"] * 2 + ["D"] * 2
@@ -119,6 +123,29 @@ def compute(data):
         warnings.append(
             f"안전 선택지({', '.join(top_adjacent)})가 S/A 등급이에요. 목표 직군 공고의 Confidence·Ease를 다시 점검해 주세요."
         )
+
+    # 모집 상태 점검: 마감·마감일 경과 공고는 제외 대상, 상태를 못 읽은 공고는 S/A 불가
+    today = None
+    if data.get("today"):
+        try:
+            today = date.fromisoformat(data["today"])
+        except ValueError:
+            warnings.append(f"today '{data['today']}'를 YYYY-MM-DD로 읽지 못했어요. 마감일 비교를 건너뛰었어요.")
+    for job in scored:
+        jid = job.get("id", "?")
+        status = job.get("status", "unknown")
+        deadline = job.get("deadline")
+        expired = status == "closed"
+        if today and isinstance(deadline, str) and deadline not in ("상시", ""):
+            try:
+                if date.fromisoformat(deadline) < today:
+                    expired = True
+            except ValueError:
+                warnings.append(f"{jid}: deadline '{deadline}'를 YYYY-MM-DD로 읽지 못했어요.")
+        if expired:
+            warnings.append(f"{jid}: 마감된 공고예요. 후보에서 빼고 다른 공고로 바꿔 다시 실행해 주세요.")
+        elif status != "open" and job["grade"] in ("S", "A"):
+            warnings.append(f"{jid}: 모집 중인지 확인하지 못한 공고가 {job['grade']} 등급이에요. 공고 페이지에서 모집 상태를 읽거나 URL을 받아 확인해 주세요.")
 
     return {
         "ok": True,

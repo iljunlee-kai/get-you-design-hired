@@ -17,7 +17,9 @@
       "ease": 6,
       "role": "PM",
       "track": "target",
-      "reason": "샘플"
+      "reason": "샘플",
+      "status": "open",
+      "deadline": "2026-10-31"
     },
     {
       "id": "J2",
@@ -28,7 +30,9 @@
       "ease": 7,
       "role": "PM",
       "track": "target",
-      "reason": "샘플"
+      "reason": "샘플",
+      "status": "open",
+      "deadline": "2026-10-31"
     },
     {
       "id": "J3",
@@ -39,7 +43,9 @@
       "ease": 6,
       "role": "서비스 기획",
       "track": "target",
-      "reason": "샘플"
+      "reason": "샘플",
+      "status": "open",
+      "deadline": "2026-10-31"
     },
     {
       "id": "J4",
@@ -50,7 +56,9 @@
       "ease": 8,
       "role": "서비스 기획",
       "track": "target",
-      "reason": "샘플"
+      "reason": "샘플",
+      "status": "open",
+      "deadline": "2026-10-31"
     },
     {
       "id": "J5",
@@ -61,7 +69,9 @@
       "ease": 5,
       "role": "PM",
       "track": "target",
-      "reason": "샘플"
+      "reason": "샘플",
+      "status": "open",
+      "deadline": "2026-10-31"
     },
     {
       "id": "J6",
@@ -72,7 +82,9 @@
       "ease": 6,
       "role": "데이터 분석",
       "track": "target",
-      "reason": "샘플"
+      "reason": "샘플",
+      "status": "open",
+      "deadline": "2026-10-31"
     },
     {
       "id": "J7",
@@ -83,7 +95,9 @@
       "ease": 7,
       "role": "데이터 분석",
       "track": "target",
-      "reason": "샘플"
+      "reason": "샘플",
+      "status": "open",
+      "deadline": "2026-10-31"
     },
     {
       "id": "J8",
@@ -94,7 +108,9 @@
       "ease": 8,
       "role": "마케팅",
       "track": "adjacent",
-      "reason": "샘플"
+      "reason": "샘플",
+      "status": "open",
+      "deadline": "2026-10-31"
     },
     {
       "id": "J9",
@@ -105,7 +121,9 @@
       "ease": 7,
       "role": "마케팅",
       "track": "adjacent",
-      "reason": "샘플"
+      "reason": "샘플",
+      "status": "open",
+      "deadline": "2026-09-30"
     },
     {
       "id": "J10",
@@ -116,8 +134,10 @@
       "ease": 4,
       "role": "서비스 기획",
       "track": "target",
-      "reason": "샘플"
+      "reason": "샘플",
+      "status": "unknown"
     }
   ],
-  "adjacent_roles": []
+  "adjacent_roles": [],
+  "today": "2026-10-14"
 }

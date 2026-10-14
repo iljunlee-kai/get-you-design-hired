@@ -3,13 +3,16 @@
 #
 # status:
 #   untested  = 아직 실제 접근 테스트 전 docs/source-test.md로 테스트한다.
-#   ok        = AI 검색/열람이 확인됨 (상세 페이지의 게시일·마감을 읽을 수 있음)
-#   partial   = 검색 결과·제목은 보이나 상세(게시일/마감)는 일부만 읽힘
+#   ok        = AI 검색/열람이 확인됨 (상세 페이지의 모집 상태·마감을 읽을 수 있고 사람 대조로 일치 확인)
+#   partial   = 검색 결과·제목은 보이나 상세(모집 상태/마감)는 일부만 읽힘
 #   blocked   = 로그인 벽·차단으로 읽히지 않음 → 사용자 URL 붙여넣기 경로로만 사용
 #
-# 모든 status는 실제 테스트 후 갱신한다. 지금 값은 가정이 아니라 "미확인"이다.
+# 2026-10-14 테스트(ChatGPT, 상위 3개씩): 네 소스 모두 partial. 게시일은 한 곳도 못 읽음.
+# 마감·요건·근무지는 열린 공고에서 대체로 읽힘. 검색 결과에 마감된 공고가 많이 섞임 → 모집 상태 필터 필수.
+# 잡코리아 한 건(패스트레인)은 사람이 직접 열어 마감·요건·근무지가 일치함을 확인함.
+# 아직 사람 대조 전인 소스는 status를 ok로 올리지 않는다.
 
-version: 2
+version: 3
 active_regions: [KR]       # 지금은 한국만 지원. 다른 지역은 deferred_regions에 보관
 max_candidates: 30
 final_count: 10
@@ -18,21 +21,24 @@ paste_url_fallback: true   # 검색이 막히면 사용자 URL 붙여넣기를 �
 regions:
   KR:
     label: 한국
-    # 순서 = 시도 순서. 테스트 결과로 재정렬한다. LinkedIn은 로그인 벽 가능성이 높아 마지막.
+    # 순서 = 시도 순서. 2026-10-14 테스트 기준 잠정 순위. 링크드인은 접근 제한과 날짜 부재로 마지막.
     sources:
-      - name: 원티드
-        domain: wanted.co.kr
-        status: untested
-      - name: 사람인
-        domain: saramin.co.kr
-        status: untested
       - name: 잡코리아
         domain: jobkorea.co.kr
-        status: untested
+        status: partial
+        note: 접수기간(등록·마감)과 요건 추출이 가장 정확. 검색 목록에 등록일·마감이 보임
+      - name: 사람인
+        domain: saramin.co.kr
+        status: partial
+        note: 상세는 잘 열리나 오래된 마감 공고가 검색에 섞임 (2019년 마감 공고 포함). 마감일 필터 필수
+      - name: 원티드
+        domain: wanted.co.kr
+        status: partial
+        note: 403 차단이 일부 발생. '상시채용' 표기는 현재 모집 여부 확인 필요 (삼양식품 건은 재검색에서 해당 포지션 미발견)
       - name: 링크드인
         domain: linkedin.com/jobs
-        status: untested
-        note: 로그인 벽 가능성 높음. 막히면 URL 붙여넣기로만 사용
+        status: partial
+        note: 상세는 열리나 게시 시점이 "3개월 전"처럼 상대 표현이고 429 차단 발생. 확인한 공고 대부분이 마감됨
       - name: 기업 공식 채용 페이지
         domain: "*"
         status: untested

@@ -15,7 +15,7 @@ AI와 나눈 대화 내용을 MD 파일로 올려주세요.
 ## labels
 
 - hold_label: 추천 보류
-- needs_check: 확인 필요      (게시일·마감처럼 확인할 수 있는데 못 읽은 값)
+- needs_check: 확인 필요      (마감·모집 상태처럼 확인할 수 있는데 못 읽은 값)
 - not_stated: 공고 미기재     (연봉·야근처럼 공고에 없는 값. 감점하지 않는다)
 - interview_check: 면접에서 확인
 - track_target: 목표 직군
