@@ -40,6 +40,7 @@ AI와 나눈 대화 기록을 올리면, 나에게 맞는 채용 공고 10개를
 │   ├── instructions.md   핵심 지침 (모델 중립)
 │   ├── ice-rubric.md     ICE 기준표
 │   ├── score.py          점수·등급 계산
+│   ├── career-file.md    커리어 파일 형식 (세션 간 이어가기)
 │   └── sample-input.json
 ├── i18n/
 │   ├── ko/               한국어 질문·문구·리포트 형식
