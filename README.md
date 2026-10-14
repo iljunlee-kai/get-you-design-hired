@@ -1,4 +1,4 @@
-# get-you-hired · 커리어 리포트 (가칭)
+# get-you-hired · 나에게 딱 맞는 직업을 찾아드립니다.
 
 > **English summary** — Upload your AI chat history. The tool asks three short questions, finds 10 matching job postings (Korean market first), scores them with ICE, ranks them S–D, and writes a DOCX report with strengths, weaknesses, blind spots (where what you say differs from how you actually chat) and a 3-day action plan. No server, nothing collected; it runs as a custom GPT or any model that can follow `core/instructions.md`. Work in progress. MIT licensed.
 
