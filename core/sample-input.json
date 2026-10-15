@@ -1,8 +1,8 @@
 {
   "roles": [
+    "프로덕트 디자이너",
     "서비스 기획",
-    "PM",
-    "데이터 분석"
+    "콘텐츠 디자이너"
   ],
   "max_adjacent": 2,
   "min_per_role": 2,
@@ -10,12 +10,12 @@
   "jobs": [
     {
       "id": "J1",
-      "title": "Product Owner",
+      "title": "Product Designer",
       "company": "Sample A",
       "impact": 9,
       "confidence": 7,
       "ease": 6,
-      "role": "PM",
+      "role": "프로덕트 디자이너",
       "track": "target",
       "reason": "샘플",
       "status": "open",
@@ -23,12 +23,12 @@
     },
     {
       "id": "J2",
-      "title": "Product Manager",
+      "title": "UX/UI Designer",
       "company": "Sample B",
       "impact": 8,
       "confidence": 6,
       "ease": 7,
-      "role": "PM",
+      "role": "프로덕트 디자이너",
       "track": "target",
       "reason": "샘플",
       "status": "open",
@@ -36,7 +36,7 @@
     },
     {
       "id": "J3",
-      "title": "UX Strategist",
+      "title": "서비스 기획자",
       "company": "Sample C",
       "impact": 7,
       "confidence": 8,
@@ -49,7 +49,7 @@
     },
     {
       "id": "J4",
-      "title": "Service Planner",
+      "title": "UX 기획자",
       "company": "Sample D",
       "impact": 6,
       "confidence": 7,
@@ -62,12 +62,12 @@
     },
     {
       "id": "J5",
-      "title": "Growth PM",
+      "title": "Product Designer (B2B SaaS)",
       "company": "Sample E",
       "impact": 8,
       "confidence": 5,
       "ease": 5,
-      "role": "PM",
+      "role": "프로덕트 디자이너",
       "track": "target",
       "reason": "샘플",
       "status": "open",
@@ -75,12 +75,12 @@
     },
     {
       "id": "J6",
-      "title": "Data Analyst",
+      "title": "UX 라이터 · 콘텐츠 디자이너",
       "company": "Sample F",
       "impact": 7,
       "confidence": 5,
       "ease": 6,
-      "role": "데이터 분석",
+      "role": "콘텐츠 디자이너",
       "track": "target",
       "reason": "샘플",
       "status": "open",
@@ -88,12 +88,12 @@
     },
     {
       "id": "J7",
-      "title": "Business Analyst",
+      "title": "에디토리얼 콘텐츠 디자이너",
       "company": "Sample G",
       "impact": 5,
       "confidence": 6,
       "ease": 7,
-      "role": "데이터 분석",
+      "role": "콘텐츠 디자이너",
       "track": "target",
       "reason": "샘플",
       "status": "open",
@@ -101,12 +101,12 @@
     },
     {
       "id": "J8",
-      "title": "Growth Marketer",
+      "title": "브랜드 디자이너",
       "company": "Sample H",
       "impact": 5,
       "confidence": 8,
       "ease": 8,
-      "role": "마케팅",
+      "role": "브랜드 디자이너",
       "track": "adjacent",
       "reason": "샘플",
       "status": "open",
@@ -114,12 +114,12 @@
     },
     {
       "id": "J9",
-      "title": "Performance Marketer",
+      "title": "그래픽 디자이너",
       "company": "Sample I",
       "impact": 4,
       "confidence": 8,
       "ease": 7,
-      "role": "마케팅",
+      "role": "브랜드 디자이너",
       "track": "adjacent",
       "reason": "샘플",
       "status": "open",
@@ -127,17 +127,19 @@
     },
     {
       "id": "J10",
-      "title": "Operations Associate",
+      "title": "UI 디자이너",
       "company": "Sample J",
       "impact": 3,
       "confidence": 5,
       "ease": 4,
-      "role": "서비스 기획",
+      "role": "프로덕트 디자이너",
       "track": "target",
       "reason": "샘플",
       "status": "unknown"
     }
   ],
-  "adjacent_roles": [],
-  "today": "2026-10-14"
+  "adjacent_roles": [
+    "브랜드 디자이너"
+  ],
+  "today": "2026-10-15"
 }

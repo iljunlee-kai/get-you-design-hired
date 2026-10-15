@@ -1,9 +1,11 @@
-# get-you-hired · 나에게 딱 맞는 직업을 찾아드립니다.
+# get-you-hired · 커리어 리포트 (가칭)
 
-> **English summary** — Upload your AI chat history. The tool asks three short questions, finds 10 matching job postings (Korean market first), scores them with ICE, ranks them S–D, and writes a DOCX report with strengths, weaknesses, blind spots (where what you say differs from how you actually chat) and a 3-day action plan. No server, nothing collected; it runs as a custom GPT or any model that can follow `core/instructions.md`. Work in progress. MIT licensed.
+> **English summary** — A personal job-search agent that gets to know you from your AI chat history. Upload your chats; it asks three short questions, tells you what kind of person and which roles your conversations point to (with evidence), finds 10 matching job postings (Korean market first, tuned for planning, digital product, design and content design roles), scores them with ICE, ranks them S–D, and writes a DOCX report with strengths, weaknesses, blind spots and a 3-day action plan. Save the career file it gives you; next time it won't re-ask what it already knows and starts by asking how your last actions went. No server, nothing collected; it runs as a custom GPT or any model that can follow `core/instructions.md`. Work in progress. MIT licensed.
 
 
-AI와 나눈 대화 기록을 올리면, 나에게 맞는 채용 공고 10개를 찾아 우선순위를 매기고 리포트(DOCX)와 3일 투두를 만들어주는 도구예요.
+AI와 나눈 대화 기록으로 나를 알아가는 **나만의 취업 도우미**예요. 대화에서 보이는 내 모습과 어울리는 직업을 짚어주고, 나에게 맞는 채용 공고 10개의 우선순위와 리포트(DOCX), 3일 투두를 만들어줘요. 저장해 둔 커리어 파일을 다시 올리면 처음부터 묻지 않고, 지난번에 하기로 한 일부터 이어서 상담해요.
+
+지금은 **기획, 디지털 프로덕트(PO·PM), 디자이너, 콘텐츠 디자이너** 직군에 맞춰 다듬고 있어요.
 
 > 🚧 제작 중이에요. 지금은 **한국 공고만** 지원해요. 샘플 리포트와 바로 쓰기 링크는 준비되는 대로 여기에 들어가요.
 
@@ -13,11 +15,12 @@ AI와 나눈 대화 기록을 올리면, 나에게 맞는 채용 공고 10개를
 
 ## 이렇게 동작해요
 
-1. AI와 나눈 대화를 MD 파일로 올려요. (`examples/sample-conversation.md`가 예시예요)
+1. AI와 나눈 대화를 MD 파일로 올려요. (`examples/`의 `sample-conversation.md`(마케터)와 `sample-conversation-designer.md`(디자이너)가 예시예요)
 2. AI가 질문 3개를 하나씩 물어요: 원하는 직군·연봉·지역·절대 안 되는 조건 / 학력 / 잘하는 것·어려운 것. 모르겠으면 "잘 모르겠어요"라고 해도 돼요.
 3. 조건에 맞는 공고 10개를 찾아요. 게시일과 마감은 페이지에서 읽은 값만 써요. 연봉·야근처럼 공고에 없는 것은 "공고 미기재"로 두고, 야근·문화는 면접에서 물어볼 질문으로 바꿔줘요.
 4. 공고마다 ICE(영향·합격 가능성·지원 난이도)로 점수를 매기고 S~D 우선순위를 정해요.
-5. 장점·단점·맹점, 공고 리스트, 3일 안에 할 일이 담긴 리포트를 만들어요.
+5. 장점·단점·맹점, "대화에서 보이는 나"와 어울리는 직업, 공고 리스트, 3일 안에 할 일이 담긴 리포트를 만들어요.
+6. 마지막에 나오는 커리어 파일을 저장해 두세요. 다음에 올리면 이미 말한 내용은 다시 묻지 않고, 지난번에 하기로 한 일이 어떻게 됐는지부터 이어서 얘기해요.
 
 등급은 합격 가능성이 아니라 **이번 후보 중 추천 우선순위**예요. 점수도 함께 보여줘요.
 
