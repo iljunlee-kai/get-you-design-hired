@@ -19,7 +19,8 @@ updated: 2026-10-15
 language: ko
 
 profile:
-  roles: [프로덕트 디자이너, 서비스 기획]
+  roles: [디자이너]                 # 사용자가 말한 그대로
+  search_roles: [프로덕트 디자이너, 콘텐츠 디자이너]   # 실제 검색 직군 (roles.md 4개 중). 해석했으면 확인 후 confirmed에 넣는다
   current_role: 브랜드 디자이너
   experience_years: 3년             # 사용자가 말한 연차. 없으면 비운다
   salary: 4500만원 이상
@@ -56,7 +57,8 @@ postings:
     company: 회사명
     position: 포지션
     link: https://...
-    grade: A                        # S/A/B/C/D, 이번 후보 중 우선순위
+    rank: 1                         # 이번 후보 중 순위 (1~10)
+    role: 프로덕트 디자이너
     status: 관심                    # 관심 / 지원 / 서류통과 / 면접 / 탈락 / 합격 / 보류
     date: 2026-10-15               # 상태가 바뀐 날
     note: ""

@@ -8,7 +8,7 @@ GPT는 이 레포를 **직접 읽는다**. 지침 칸에는 시작 방법만 넣
 ## 2. 지식(Knowledge) 파일
 기본은 **올리지 않는다** (레포를 직접 읽는다). 레포 접근이 막힐 때를 대비하려면 아래를 올려 둘 수 있다. 이 경우 수정할 때마다 다시 올려야 하고, 올린 파일이 오래되면 레포와 어긋난다.
 
-`START.md`, `core/principles.md`, `core/flow-*.md` 4개, `core/ice-rubric.md`, `core/career-file.md`, `core/score.py`, `sources.yml`, `i18n/ko/questions.md`, `i18n/ko/messages.md`, `i18n/ko/report.md`
+`START.md`, `core/principles.md`, `core/flow-*.md` 4개, `core/roles.md`, `core/ice-rubric.md`, `core/career-file.md`, `core/score.py`, `sources.yml`, `i18n/ko/questions.md`, `i18n/ko/messages.md`, `i18n/ko/report.md`
 
 ## 3. 기능
 - 웹 검색: 켜기 (레포 읽기와 공고 검색에 필요)
