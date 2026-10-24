@@ -11,7 +11,8 @@
     {"id": "A", "title": "...", "company": "...",
      "impact": 8, "confidence": 6, "ease": 7, "reason": "근거 한 줄",
      "role": "프로덕트 디자이너",                 # search_roles 항목과 같은 문자열
-     "status": "open", "deadline": "2026-10-20"}  # status: open(모집 중 확인) | closed(마감) | unknown(못 읽음)
+     "status": "open", "deadline": "2026-10-20",  # status: open(모집 중 확인) | closed(마감) | unknown(못 읽음)
+     "requirements_read": true}                  # 주요업무·자격요건을 상세 페이지에서 읽었는지 (생략하면 true)
                                                    # deadline: YYYY-MM-DD, 상시채용이면 "상시", 못 읽었으면 생략
   ],
   "today": "2026-10-25",                                   # 선택, 오늘 날짜. 있으면 마감일이 지난 공고를 경고한다
@@ -23,6 +24,7 @@
 }
 
 출력(JSON): 점수 내림차순으로 정렬하고 rank(1부터)를 붙인 공고 목록, top_score_low, 경고 메시지.
+1~top_n위에는 모집 중이 확인되고 요건을 읽은 공고(top_eligible)만 둔다. 아닌 공고는 점수가 높아도 그 아래로 내린다.
 점수 = 가중 평균(1~10) x 10 → 10~100점.
 동점 처리: Confidence → Impact → Ease → 입력 순서.
 등급 문자(S~D)와 "추천 보류"는 쓰지 않는다 (2026-10-25, D31).
@@ -77,29 +79,15 @@ def compute(data):
     scored.sort(
         key=lambda j: (-j["score"], -j["confidence"], -j["impact"], -j["ease"], j["_order"])
     )
-    for rank, job in enumerate(scored, start=1):
-        job["rank"] = rank
-        del job["_order"]
 
     warnings = []
-    if len(scored) != EXPECTED_COUNT:
-        warnings.append(f"공고가 {len(scored)}개예요 (기본 {EXPECTED_COUNT}개). 개수를 리포트에 밝혀 주세요.")
-
-    min_per_role = data.get("min_per_role", DEFAULT_MIN_PER_ROLE)
-    for role in data.get("roles", []):
-        count = sum(1 for j in scored if j.get("role") == role)
-        if count < min_per_role:
-            warnings.append(
-                f"직군 '{role}' 공고가 {count}개예요 (최소 {min_per_role}개). 부족하면 사유를 리포트에 적어주세요."
-            )
-
-    # 모집 상태 점검: 마감·마감일 경과 공고는 제외 대상, 상태를 못 읽은 공고는 상위 top_n위 불가
     today = None
     if data.get("today"):
         try:
             today = date.fromisoformat(data["today"])
         except ValueError:
             warnings.append(f"today '{data['today']}'를 YYYY-MM-DD로 읽지 못했어요. 마감일 비교를 건너뛰었어요.")
+
     for job in scored:
         jid = job.get("id", "?")
         status = job.get("status", "unknown")
@@ -113,10 +101,42 @@ def compute(data):
                 warnings.append(f"{jid}: deadline '{deadline}'를 YYYY-MM-DD로 읽지 못했어요.")
         if expired:
             warnings.append(f"{jid}: 마감된 공고예요. 후보에서 빼고 다른 공고로 바꿔 다시 실행해 주세요.")
-        elif status != "open" and job["rank"] <= top_n:
+        reasons = []
+        if expired:
+            reasons.append("마감")
+        elif status != "open":
+            reasons.append("모집 상태 미확인")
+        if job.get("requirements_read", True) is False:
+            reasons.append("요건 미확인")
+        job["top_eligible"] = not reasons
+        job["_reasons"] = reasons
+
+    # 1~top_n위: 자격 있는 공고를 점수 순으로 채우고, 나머지는 점수 순으로 그 아래에 둔다
+    top, rest = [], []
+    for job in scored:
+        (top if job["top_eligible"] and len(top) < top_n else rest).append(job)
+    by_score_rank = {id(j): i for i, j in enumerate(scored, start=1)}
+    scored = top + rest
+    for rank, job in enumerate(scored, start=1):
+        job["rank"] = rank
+        if job["_reasons"] and by_score_rank[id(job)] <= top_n:
             warnings.append(
-                f"{jid}: 모집 중인지 확인하지 못한 공고가 {job['rank']}위예요. "
-                f"공고 페이지에서 모집 상태를 읽거나 URL을 받아 확인해 주세요. 확인이 안 되면 {top_n}위 밖으로 빼 주세요."
+                f"{job.get('id', '?')}: 점수로는 {by_score_rank[id(job)]}위지만 {', '.join(job['_reasons'])}이라 "
+                f"{top_n}위 밖({rank}위)으로 내렸어요. 상세 페이지나 JD 원문을 확인하면 다시 올릴 수 있어요."
+            )
+        del job["_order"], job["_reasons"]
+    if len(top) < min(top_n, len(scored)):
+        warnings.append(f"1~{top_n}위에 둘 수 있는 공고(모집 중 확인 + 요건 확인)가 {len(top)}개뿐이에요. 리포트에 밝혀 주세요.")
+
+    if len(scored) != EXPECTED_COUNT:
+        warnings.append(f"공고가 {len(scored)}개예요 (기본 {EXPECTED_COUNT}개). 개수를 리포트에 밝혀 주세요.")
+
+    min_per_role = data.get("min_per_role", DEFAULT_MIN_PER_ROLE)
+    for role in data.get("roles", []):
+        count = sum(1 for j in scored if j.get("role") == role)
+        if count < min_per_role:
+            warnings.append(
+                f"직군 '{role}' 공고가 {count}개예요 (최소 {min_per_role}개). 부족하면 사유를 리포트에 적어주세요."
             )
 
     top_score_low = bool(scored) and scored[0]["score"] < low_score_below
