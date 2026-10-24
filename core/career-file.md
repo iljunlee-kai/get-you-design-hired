@@ -61,6 +61,12 @@ postings:
     link: https://...
     rank: 1                         # 이번 후보 중 순위 (1~10)
     role: 프로덕트 디자이너
+    jd_source: 공고 페이지       # 공고 페이지 / 사용자가 붙여넣음 / 회사 채용 페이지. 1~3위만 아래 칸을 채운다
+    years_required: 3
+    requirements:                  # 요건 체크리스트 (ice-rubric.md). 근거는 짧게
+      - {text: Figma 활용, type: must, status: met, evidence: "이력서"}
+      - {text: 사용자 리서치 경험, type: must, status: partial, evidence: "대화 7"}
+      - {text: 디자인 시스템 경험, type: pref, status: unknown}
     status: 관심                    # 관심 / 지원 / 서류통과 / 면접 / 탈락 / 합격 / 보류
     date: 2026-10-15               # 상태가 바뀐 날
     note: ""
@@ -86,7 +92,7 @@ history:
 | `portrait` | 대화에서 읽은 "나"의 모습. 근거와 상태 포함 | 리포트 작성 때, 이어가기에서 사용자 반응이 있을 때 |
 | `direction.hypotheses` | 리포트의 맹점과 방향 추정을 가설로 옮긴 것 | 이어가기 ①에서 |
 | `direction.chosen` | 사용자가 직접 정한 방향 | 사용자가 정했을 때만 |
-| `postings` | 추천 공고와 지원 상태 | 공고를 새로 찾거나 이어가기 ③에서 |
+| `postings` | 추천 공고와 지원 상태. 1~3위는 요건 체크리스트(`requirements`)와 출처(`jd_source`)까지 | 공고를 새로 찾거나 이어가기 ③에서 |
 | `next_actions` | 다음에 할 일과 지난 결과 | 세션 시작(지난 행동 확인)과 세션 끝 |
 | `history` | 세션당 한 줄 | 세션 끝 |
 

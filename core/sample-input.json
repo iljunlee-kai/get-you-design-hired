@@ -33,7 +33,40 @@
       "role": "프로덕트 디자이너",
       "reason": "샘플",
       "status": "open",
-      "deadline": "2026-11-30"
+      "deadline": "2026-11-30",
+      "years_required": 3,
+      "requirements": [
+        {
+          "text": "UX/UI 실무 경력 3년 이상 또는 그에 준하는 문제 해결 경험",
+          "type": "must",
+          "status": "partial",
+          "evidence": "이력서: 브랜드 디자인 3년 8개월, 앱 개인 프로젝트 2개"
+        },
+        {
+          "text": "Figma 활용",
+          "type": "must",
+          "status": "met",
+          "evidence": "이력서: Figma 화면 32개, 프로토타입 1종"
+        },
+        {
+          "text": "사용자 리서치 기반 개선 경험",
+          "type": "must",
+          "status": "partial",
+          "evidence": "이력서는 리서치 기반이라 썼지만 대화 7: 인터뷰 경험 없음"
+        },
+        {
+          "text": "디자인 시스템 구축 경험",
+          "type": "pref",
+          "status": "unknown",
+          "evidence": ""
+        },
+        {
+          "text": "A/B 테스트 경험",
+          "type": "pref",
+          "status": "unmet",
+          "evidence": "대화·서류에 없음"
+        }
+      ]
     },
     {
       "id": "J3",
@@ -45,7 +78,16 @@
       "role": "BX 디자이너",
       "reason": "샘플",
       "status": "open",
-      "deadline": "2026-11-30"
+      "deadline": "2026-11-30",
+      "years_required": 7,
+      "requirements": [
+        {
+          "text": "BI 구축 경험",
+          "type": "must",
+          "status": "met",
+          "evidence": "이력서: 브랜드 가이드라인 12쪽"
+        }
+      ]
     },
     {
       "id": "J4",
@@ -130,5 +172,6 @@
       "reason": "샘플",
       "status": "unknown"
     }
-  ]
+  ],
+  "experience_years": 3
 }

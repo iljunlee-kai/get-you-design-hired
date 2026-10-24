@@ -12,10 +12,17 @@
      "impact": 8, "confidence": 6, "ease": 7, "reason": "근거 한 줄",
      "role": "프로덕트 디자이너",                 # search_roles 항목과 같은 문자열
      "status": "open", "deadline": "2026-10-20",  # status: open(모집 중 확인) | closed(마감) | unknown(못 읽음)
-     "requirements_read": true}                  # 주요업무·자격요건을 상세 페이지에서 읽었는지 (생략하면 true)
+     "requirements_read": true,                  # 주요업무·자격요건을 상세 페이지에서 읽었는지 (생략하면 true)
+     "years_required": 3,                        # 선택, 공고의 최소 요구 연차
+     "requirements": [                           # 선택, 요건 체크리스트. 있으면 Confidence를 여기서 계산한다
+       {"text": "Figma 활용", "type": "must", "status": "met", "evidence": "이력서: Figma 화면 32개"}
+       # type: must(자격요건) | pref(우대사항)
+       # status: met(충족) | partial(부분) | unmet(미충족) | unknown(확인 불가: 사용자에게 물어볼 것)
+     ]}
                                                    # deadline: YYYY-MM-DD, 상시채용이면 "상시", 못 읽었으면 생략
   ],
-  "today": "2026-10-25",                                   # 선택, 오늘 날짜. 있으면 마감일이 지난 공고를 경고한다
+  "today": "2026-10-25",
+  "experience_years": 3,                                   # 선택, 프로필의 연차. years_required와 비교한다                                   # 선택, 오늘 날짜. 있으면 마감일이 지난 공고를 경고한다
   "roles": ["프로덕트 디자이너", "BX 디자이너"],           # 선택, 검색 직군(search_roles). 직군별 최소 개수 점검용
   "min_per_role": 2,                                       # 선택, 직군별 최소 공고 수 (기본 2)
   "top_n": 3,                                              # 선택, 모집 상태를 확인해야 하는 상위 순위 (기본 3)
@@ -28,6 +35,13 @@
 점수 = 가중 평균(1~10) x 10 → 10~100점.
 동점 처리: Confidence → Impact → Ease → 입력 순서.
 등급 문자(S~D)와 "추천 보류"는 쓰지 않는다 (2026-10-25, D31).
+
+Confidence (D34): 공고에 requirements가 있으면 입력한 confidence 대신 체크리스트로 계산한다.
+  항목 점수: met 1, partial 0.5, unmet 0, unknown 0 (unknown은 확인 질문으로 따로 돌려준다).
+  비율 = 필수 평균 x 0.75 + 우대 평균 x 0.25 (우대가 없으면 필수 평균, 필수가 없으면 우대 평균).
+  Confidence = round(1 + 9 x 비율), 1~10.
+  years_required - experience_years >= 3 이면 Confidence 3 이하.
+  출력: confidence_source(checklist|judged), checklist(must/pref 충족 수), gaps(unmet·partial), unknowns.
 """
 
 import json
@@ -39,6 +53,50 @@ DEFAULT_LOW_SCORE_BELOW = 60
 DEFAULT_MIN_PER_ROLE = 2
 DEFAULT_TOP_N = 3
 EXPECTED_COUNT = 10
+ITEM_POINTS = {"met": 1.0, "partial": 0.5, "unmet": 0.0, "unknown": 0.0}
+EXPERIENCE_GAP_YEARS = 3
+EXPERIENCE_GAP_CAP = 3
+
+
+def apply_checklist(job, experience_years, errors, index):
+    """requirements가 있으면 Confidence를 계산해 job에 넣는다."""
+    reqs = job.get("requirements")
+    if reqs:
+        groups = {"must": [], "pref": []}
+        gaps, unknowns = [], []
+        for k, item in enumerate(reqs):
+            kind, status = item.get("type"), item.get("status")
+            if kind not in groups or status not in ITEM_POINTS:
+                errors.append(f"jobs[{index}].requirements[{k}]: type은 must/pref, status는 met/partial/unmet/unknown이어야 해요")
+                continue
+            groups[kind].append(ITEM_POINTS[status])
+            if status in ("unmet", "partial"):
+                gaps.append({"text": item.get("text", ""), "type": kind, "status": status})
+            elif status == "unknown":
+                unknowns.append({"text": item.get("text", ""), "type": kind})
+        must = sum(groups["must"]) / len(groups["must"]) if groups["must"] else None
+        pref = sum(groups["pref"]) / len(groups["pref"]) if groups["pref"] else None
+        if must is not None and pref is not None:
+            ratio = must * 0.75 + pref * 0.25
+        else:
+            ratio = must if must is not None else (pref if pref is not None else 0.0)
+        job["confidence"] = max(1, min(10, round(1 + 9 * ratio)))
+        job["confidence_source"] = "checklist"
+        job["checklist"] = {
+            "must_met": sum(1 for p in groups["must"] if p == 1.0), "must_total": len(groups["must"]),
+            "pref_met": sum(1 for p in groups["pref"] if p == 1.0), "pref_total": len(groups["pref"]),
+        }
+        job["gaps"], job["unknowns"] = gaps, unknowns
+        job.setdefault("requirements_read", True)
+    else:
+        job["confidence_source"] = "judged"
+    yr = job.get("years_required")
+    if (isinstance(yr, (int, float)) and isinstance(experience_years, (int, float))
+            and yr - experience_years >= EXPERIENCE_GAP_YEARS
+            and isinstance(job.get("confidence"), (int, float))
+            and job["confidence"] > EXPERIENCE_GAP_CAP):
+        job["confidence"] = EXPERIENCE_GAP_CAP
+        job["experience_capped"] = True
 
 
 def validate(job, index, errors):
@@ -59,7 +117,9 @@ def compute(data):
     errors = []
     if not jobs:
         errors.append("jobs가 비어 있어요")
+    experience_years = data.get("experience_years")
     for i, job in enumerate(jobs):
+        apply_checklist(job, experience_years, errors, i)
         validate(job, i, errors)
     total_weight = sum(weights.values())
     if total_weight <= 0:
