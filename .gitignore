@@ -4,3 +4,6 @@ docs/PRD.md
 # OS / 편집기
 .DS_Store
 *.swp
+
+# Generated reports (test outputs)
+examples/*.docx

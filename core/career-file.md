@@ -21,6 +21,7 @@ language: ko
 profile:
   roles: [프로덕트 디자이너, 서비스 기획]
   current_role: 브랜드 디자이너
+  experience_years: 3년             # 사용자가 말한 연차. 없으면 비운다
   salary: 4500만원 이상
   regions: [서울]
   dealbreakers: [재택 불가]
