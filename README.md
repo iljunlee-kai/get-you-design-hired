@@ -1,6 +1,6 @@
 # get-you-hired · 커리어 리포트 (가칭)
 
-> **English summary** — A personal job-search agent that gets to know you from your AI chat history. Upload your chats; it asks three short questions, tells you what kind of person and which roles your conversations point to (with evidence), finds 10 matching job postings (Korean market first, tuned for planning, digital product, design and content design roles), scores them with ICE, ranks them S–D, and writes a DOCX report with strengths, weaknesses, blind spots and a 3-day action plan. Save the career file it gives you; next time it won't re-ask what it already knows and starts by asking how your last actions went. No server, nothing collected; it runs as a custom GPT or any model that can follow `core/instructions.md`. Work in progress. MIT licensed.
+> **English summary** — A personal job-search agent that gets to know you from your AI chat history. Upload your chats; it asks three short questions, tells you what kind of person and which roles your conversations point to (with evidence), finds 10 matching job postings (Korean market first, tuned for planning, digital product, design and content design roles), scores them with ICE, ranks them S–D, and writes a DOCX report with strengths, weaknesses, blind spots and a 3-day action plan. Save the career file it gives you; next time it won't re-ask what it already knows and starts by asking how your last actions went. No server, nothing collected; the agent reads this repo directly, starting from `START.md` (custom GPT or any AI that can browse). Work in progress. MIT licensed.
 
 
 AI와 나눈 대화 기록으로 나를 알아가는 **나만의 취업 도우미**예요. 대화에서 보이는 내 모습과 어울리는 직업을 짚어주고, 나에게 맞는 채용 공고 10개의 우선순위와 리포트(DOCX), 3일 투두를 만들어줘요. 저장해 둔 커리어 파일을 다시 올리면 처음부터 묻지 않고, 지난번에 하기로 한 일부터 이어서 상담해요.
@@ -32,26 +32,37 @@ AI와 나눈 대화 기록으로 나를 알아가는 **나만의 취업 도우�
 
 ## 쓰는 방법
 
-- **ChatGPT**: [gpt/README.md](gpt/README.md)를 따라 커스텀 GPT를 만들어요.
-- Claude 버전은 준비 중이에요.
+에이전트가 이 레포를 직접 읽어요. 시작 파일은 [`START.md`](START.md)예요. `main`에 올린 내용이 바로 반영돼요.
+
+- **ChatGPT**: [gpt/README.md](gpt/README.md)대로 커스텀 GPT를 만들어요. 지침 칸에는 시작 방법 몇 줄만 넣어요.
+- **Claude 등 웹을 읽을 수 있는 AI**: 새 대화에서 이렇게 시작해요.
+
+```
+https://github.com/iljunlee-kai/get-you-hired 의 START.md를 읽고 그대로 진행해줘.
+```
 
 ## 폴더 구조
 
 ```
 ├── README.md
+├── START.md                에이전트 시작 파일 (흐름과 읽을 파일 목록)
 ├── core/
-│   ├── instructions.md   핵심 지침 (모델 중립)
-│   ├── ice-rubric.md     ICE 기준표
-│   ├── score.py          점수·등급 계산
-│   ├── career-file.md    커리어 파일 형식 (세션 간 이어가기)
+│   ├── principles.md       원칙·정지 지점·금지
+│   ├── flow-intake.md      단계 1: 시작·질문·프로필
+│   ├── flow-search-score.md 단계 2: 공고 검색·채점·등급
+│   ├── flow-report.md      단계 3: 리포트·재실행
+│   ├── flow-resume.md      단계 4: 커리어 파일·이어가기
+│   ├── ice-rubric.md       ICE 기준표
+│   ├── score.py            점수·등급 계산
+│   ├── career-file.md      커리어 파일 형식
 │   └── sample-input.json
 ├── i18n/
-│   ├── ko/               한국어 질문·문구·리포트 형식
-│   └── en/               영어 (준비 중)
-├── sources.yml           지역별 허용 공고 사이트
-├── gpt/                  ChatGPT 설정 방법
-├── examples/             테스트용 가상 대화
-└── docs/                 소스 접근 테스트 방법
+│   ├── ko/                 한국어 질문·문구·리포트 형식
+│   └── en/                 영어 (준비 중)
+├── sources.yml             지역별 허용 공고 사이트
+├── gpt/                    ChatGPT 설정 방법과 지침 문구
+├── examples/               테스트용 가상 대화
+└── docs/                   소스 접근 테스트 방법
 ```
 
 ## 개발자용
@@ -62,7 +73,7 @@ AI와 나눈 대화 기록으로 나를 알아가는 **나만의 취업 도우�
 python core/score.py core/sample-input.json
 ```
 
-수정은 항상 `core/`와 `i18n/`에서 하고, GPT 같은 래퍼에는 복사해서 써요.
+수정은 `START.md`, `core/`, `i18n/`에서 해요. 에이전트가 레포를 직접 읽으니 복사본을 따로 관리하지 않아요. 모든 지침 파일의 마지막 줄은 끝 표시(`END`)예요. 파일을 고칠 때 지우지 마세요.
 
 ## 라이선스
 

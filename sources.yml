@@ -59,3 +59,5 @@ deferred_regions:
         domain: reed.co.uk
         status: untested
     note: 비자 스폰서 여부, 통화 환산(KRW↔GBP) 규칙이 필요하다
+
+# END: sources.yml

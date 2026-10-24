@@ -86,3 +86,5 @@ DOCX 한 파일. 섹션 순서와 제목은 아래를 따른다. 점수와 등�
 ## 푸터
 
 `messages.md`의 footer 문구 한 줄. 마지막에 한 번만.
+
+<!-- END: i18n/ko/report.md -->

@@ -1,33 +1,24 @@
 # ChatGPT(커스텀 GPT)로 쓰기
 
-커스텀 GPT를 만들 때 아래대로 설정한다. 이 레포의 `core/`, `i18n/ko/`, `sources.yml`이 원본이고, GPT에는 복사해서 넣는다. 수정은 항상 원본에서 하고 GPT에 다시 올린다.
+GPT는 이 레포를 **직접 읽는다**. 지침 칸에는 시작 방법만 넣고, 실제 지침은 레포의 `START.md`부터 따라간다. 그래서 레포를 고치면 GPT를 다시 올리지 않아도 바로 반영된다. `main` 브랜치에 push하는 순간 사용 중인 GPT에도 적용되니 push 전에 확인한다.
 
 ## 1. 지침
-`core/instructions.md` 전체를 복사해 **지침(Instructions)** 칸에 붙여넣는다. 이전 지침은 지우고 교체한다.
+`gpt/instructions.txt` 전체를 복사해 **지침(Instructions)** 칸에 붙여넣는다. 이전 지침은 지운다.
 
 ## 2. 지식(Knowledge) 파일
-이전에 올린 파일은 모두 삭제하고 아래를 올린다. **파일 이름은 바꾸지 않는다** (지침이 이름으로 파일을 찾는다).
+기본은 **올리지 않는다** (레포를 직접 읽는다). 레포 접근이 막힐 때를 대비하려면 아래를 올려 둘 수 있다. 이 경우 수정할 때마다 다시 올려야 하고, 올린 파일이 오래되면 레포와 어긋난다.
 
-| 파일 | 위치 |
-|---|---|
-| `ice-rubric.md` | core/ |
-| `score.py` | core/ |
-| `sources.yml` | 루트 |
-| `questions.md` | i18n/ko/ |
-| `messages.md` | i18n/ko/ |
-| `report.md` | i18n/ko/ |
-| `career-file.md` | core/ |
-
-올리지 않는 것: `README.md`, `docs/`, `examples/`, `sample-input.json`.
+`START.md`, `core/principles.md`, `core/flow-*.md` 4개, `core/ice-rubric.md`, `core/career-file.md`, `core/score.py`, `sources.yml`, `i18n/ko/questions.md`, `i18n/ko/messages.md`, `i18n/ko/report.md`
 
 ## 3. 기능
-- 웹 검색: 켜기
+- 웹 검색: 켜기 (레포 읽기와 공고 검색에 필요)
 - 코드 인터프리터: 켜기 (점수 계산과 DOCX 생성에 필요)
 
 ## 4. 대화 시작 문구
 "AI와 나눈 대화 MD를 올릴게요"
 
 ## 5. 저장 후 확인
+0. 새 대화에서 "START.md를 읽었으면 마지막 줄을 그대로 적어줘"라고 보낸다. `<!-- END: START.md -->`가 나와야 한다.
 1. 새 대화에서 `examples/sample-conversation.md`를 올린다.
 2. 개인정보 안내 한 줄이 나오고 Q1만 묻고 멈추는지 확인한다.
 3. Q1에 한국 밖 지역(예: 뉴욕)을 답하면 "지금은 한국 공고만 찾을 수 있어요" 안내가 나오는지 확인한다.
@@ -38,5 +29,6 @@
 8. 커리어 파일을 열어 `profile.confirmed`와 `portrait`, `next_actions.status`가 채워졌는지 본다. 다음 세션에서 `confirmed`인 값을 다시 묻지 않는지 확인한다.
 
 ## 알려진 한계
+- 긴 파일은 첫 열람에서 중간이 생략될 수 있다 (2026-10-25 테스트에서 GPT가 다시 열어 보완함). 끝 표시(END) 확인 규칙이 이를 막는다.
 - GPT의 웹 검색이 일부 채용 사이트의 상세 페이지를 읽지 못할 수 있다. 그 경우 공고 URL을 붙여넣으면 그 공고로 분석한다.
-- 커스텀 GPT는 OpenAI 정책에 따라 종료될 수 있다. 지침과 지식 파일이 모델 중립으로 분리돼 있어 다른 환경으로 옮길 수 있다.
+- 커스텀 GPT는 OpenAI 정책에 따라 종료될 수 있다. 레포가 원본이라 다른 환경에서도 `START.md`로 시작하면 된다.
