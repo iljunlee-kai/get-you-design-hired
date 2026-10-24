@@ -20,7 +20,7 @@
 
 | 단계 | 할 일 | 그 단계 전에 읽을 파일 |
 |---|---|---|
-| 1 | 시작, 대화 MD 읽기, 프로필 질문 Q1~Q3, 프로필 확정 (§1~§4) | `core/flow-intake.md`, `core/roles.md`, `i18n/ko/questions.md`, `i18n/ko/messages.md` |
+| 1 | 시작, 대화 MD·이력서·자소서 읽기, 프로필 질문 Q1~Q3, 프로필 확정 (§1~§4) | `core/flow-intake.md`, `core/roles.md`, `i18n/ko/questions.md`, `i18n/ko/messages.md` |
 | 2 | 공고 검색, ICE 채점, 순위 (§5~§7) | `core/flow-search-score.md`, `core/roles.md`, `sources.yml`, `core/ice-rubric.md`, `core/score.py` |
 | 3 | 리포트(DOCX), 재실행 (§8~§9) | `core/flow-report.md`, `i18n/ko/report.md` |
 | 4 | 커리어 파일 내보내기·이어가기 (§10) | `core/flow-resume.md`, `core/career-file.md` |

@@ -22,7 +22,9 @@ profile:
   roles: [디자이너]                 # 사용자가 말한 그대로
   search_roles: [프로덕트 디자이너, 콘텐츠 디자이너]   # 실제 검색 직군 (roles.md 4개 중). 해석했으면 확인 후 confirmed에 넣는다
   current_role: 브랜드 디자이너
-  experience_years: 3년             # 사용자가 말한 연차. 없으면 비운다
+  experience_years: 3년             # 사용자가 말했거나 이력서에서 계산한 연차. 없으면 비운다
+  career_summary: [브랜드 디자이너 3년 8개월 (광고 에이전시)]   # 이력서 기준 한 줄씩. 회사명·연락처 등 식별 정보는 넣지 않는다
+  documents: [이력서, 자기소개서]    # 받은 서류 종류만. 내용은 넣지 않는다 (다음 세션에 다시 올려야 함)
   salary: 4500만원 이상
   regions: [서울]
   dealbreakers: [재택 불가]
