@@ -24,6 +24,7 @@
 5. Q3에는 힌트, 보기, 자소서 내용을 붙이지 않는다.
 6. 1~3위는 모집 중이 확인되고 요건을 읽은 공고만이다 (`score.py`가 배치한다).
 7. 이름, 연락처, 이메일, 주소, 생년월일은 채팅·리포트·커리어 파일 어디에도 옮기지 않는다.
+8. 지원 전략은 **회사 하나씩, 질문 하나씩** 하고 날짜가 붙은 행동으로 끝낸다. 포트폴리오는 **실제로 본 페이지만** 말하고 시각적 완성도는 평가하지 않는다.
 
 ## 항상 먼저
 
@@ -37,8 +38,10 @@
 | 2 | 공고 검색, ICE 채점, 순위 (§5~§7) | `core/flow-search-score.md`, `core/roles.md`, `sources.yml`, `core/ice-rubric.md`, `core/score.py` |
 | 3 | 리포트(DOCX), 재실행 (§8~§9) | `core/flow-report.md`, `i18n/ko/report.md` |
 | 4 | 커리어 파일 내보내기·이어가기 (§10) | `core/flow-resume.md`, `core/career-file.md` |
+| 5 | 지원 전략 컨설팅: 회사 하나 고르기, 3Q, 요건·포트폴리오·서류·면접, 날짜 붙은 행동 (§11~§15) | `core/flow-strategy.md`, `i18n/ko/strategy-questions.md`, `core/ice-rubric.md`, `core/score.py` |
 
 - 단계 1의 §1에서 첨부를 구분한다. 커리어 파일(`career-file` 블록)이 있으면 단계 4의 이어가기로 간다.
+- 단계 5는 리포트 직후(strategy_offer), 이어가기 메뉴 ⑤, 또는 사용자가 지원 준비를 요청할 때 시작한다.
 - 섹션 번호(§)는 파일이 나뉘어도 그대로다. 예: "§10"은 `core/flow-resume.md`에 있다.
 
 ## 파일 목록 (원문 주소)
@@ -49,12 +52,14 @@
 - `core/flow-report.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/flow-report.md
 - `core/flow-resume.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/flow-resume.md
 - `core/roles.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/roles.md
+- `core/flow-strategy.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/flow-strategy.md
 - `core/ice-rubric.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/ice-rubric.md
 - `core/career-file.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/career-file.md
 - `core/score.py`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/score.py
 - `sources.yml`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/sources.yml
 - `i18n/ko/questions.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/i18n/ko/questions.md
 - `i18n/ko/messages.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/i18n/ko/messages.md
+- `i18n/ko/strategy-questions.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/i18n/ko/strategy-questions.md
 - `i18n/ko/report.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/i18n/ko/report.md
 
 <!-- END: START.md -->

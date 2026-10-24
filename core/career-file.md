@@ -43,6 +43,11 @@ portrait:                          # "대화에서 보이는 나". 도구의 해
     status: 추정                    # 추정 / 확인됨 / 수정됨 / 기각
     user_note: ""                  # 사용자가 맞다/아니라고 한 말, 고친 표현
 
+story:                             # 3Q 결과 (지원 전략 단계). 사용자가 확정한 문장 그대로
+  direction: {text: "", evidence: [], status: 초안}       # 초안 / 확인됨
+  metacognition: {text: "", evidence: [], status: 초안}
+  consistency: {text: "", evidence: [], status: 초안}
+
 direction:
   chosen: ""                       # 사용자가 정했을 때만 채운다
   hypotheses:
@@ -67,6 +72,13 @@ postings:
       - {text: Figma 활용, type: must, status: met, evidence: "이력서"}
       - {text: 사용자 리서치 경험, type: must, status: partial, evidence: "대화 7"}
       - {text: 디자인 시스템 경험, type: pref, status: unknown}
+    strategy:                      # 지원 전략을 한 공고만 (flow-strategy.md §15)
+      positioning: ""              # 한 줄 포지셔닝
+      portfolio_order: []          # 앞에 둘 사례 순서
+      doc_fixes: []                # 서류 문장 수정 (원문 → 제안) 요약
+      interview_questions: []      # 예상 질문 3개
+      route: ""                    # 지원 방법, 추천 경로
+      updated: ""
     status: 관심                    # 관심 / 지원 / 서류통과 / 면접 / 탈락 / 합격 / 보류
     date: 2026-10-15               # 상태가 바뀐 날
     note: ""
@@ -94,6 +106,8 @@ history:
 | `direction.chosen` | 사용자가 직접 정한 방향 | 사용자가 정했을 때만 |
 | `postings` | 추천 공고와 지원 상태. 1~3위는 요건 체크리스트(`requirements`)와 출처(`jd_source`)까지 | 공고를 새로 찾거나 이어가기 ③에서 |
 | `next_actions` | 다음에 할 일과 지난 결과 | 세션 시작(지난 행동 확인)과 세션 끝 |
+| `story` | 3Q(방향·메타인지·일관성). 모든 회사 전략의 바탕 | 지원 전략 단계에서 사용자가 확정할 때 |
+| `postings[].strategy` | 그 공고의 지원 전략 요약 | 지원 전략 단계 끝 |
 | `history` | 세션당 한 줄 | 세션 끝 |
 
 ## 상태 이동 규칙

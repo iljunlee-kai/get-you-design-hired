@@ -8,7 +8,7 @@ GPT는 이 레포를 **직접 읽는다**. 지침 칸에는 시작 방법만 넣
 ## 2. 지식(Knowledge) 파일
 기본은 **올리지 않는다** (레포를 직접 읽는다). 레포 접근이 막힐 때를 대비하려면 아래를 올려 둘 수 있다. 이 경우 수정할 때마다 다시 올려야 하고, 올린 파일이 오래되면 레포와 어긋난다.
 
-`START.md`, `core/principles.md`, `core/flow-*.md` 4개, `core/roles.md`, `core/ice-rubric.md`, `core/career-file.md`, `core/score.py`, `sources.yml`, `i18n/ko/questions.md`, `i18n/ko/messages.md`, `i18n/ko/report.md`
+`START.md`, `core/principles.md`, `core/flow-*.md` 5개, `core/roles.md`, `core/ice-rubric.md`, `core/career-file.md`, `core/score.py`, `sources.yml`, `i18n/ko/questions.md`, `i18n/ko/messages.md`, `i18n/ko/report.md`, `i18n/ko/strategy-questions.md`
 
 ## 3. 기능
 - 웹 검색: 켜기 (레포 읽기와 공고 검색에 필요)
@@ -29,6 +29,8 @@ GPT는 이 레포를 **직접 읽는다**. 지침 칸에는 시작 방법만 넣
 8. 커리어 파일을 열어 `profile.confirmed`와 `portrait`, `next_actions.status`가 채워졌는지 본다. 다음 세션에서 `confirmed`인 값을 다시 묻지 않는지 확인한다.
 
 9. 서류 테스트: `examples/sample-conversation-designer.md`와 함께 `sample-resume-designer.md`, `sample-cover-letter-designer.md`를 올린다. Q2가 확인형(이력서에서 읽은 학력 + 포트폴리오 질문)으로 나오는지, Q3에 자소서 내용이 보기로 나오지 않는지, 리포트에 "서류 점검" 표가 있는지, 이름·연락처가 리포트와 커리어 파일 어디에도 없는지 확인한다.
+
+10. 지원 전략 테스트: 9번에 이어 리포트가 나오면 1~3위 중 하나를 고른다. 3Q가 초안(근거 포함)과 함께 하나씩 나오는지, 요건 확인 질문이 하나씩 나오는지, `examples/sample-portfolio-designer.pdf`를 올렸을 때 본 페이지를 밝히고 시각적 완성도를 평가하지 않는지, 마지막에 "언제 하실래요?"로 날짜를 받는지, 커리어 파일에 `story`와 `strategy`가 들어가는지 확인한다. 이미지 전용 PDF(`sample-portfolio-designer-image-only.pdf`)로도 한 번 해 본다.
 
 ## 알려진 한계
 - 긴 파일은 첫 열람에서 중간이 생략될 수 있다 (2026-10-25 테스트에서 GPT가 다시 열어 보완함). 끝 표시(END) 확인 규칙이 이를 막는다.
