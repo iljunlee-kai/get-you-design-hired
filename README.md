@@ -1,4 +1,4 @@
-# get-you-hired · 커리어 리포트 (가칭)
+# get-you-design-hired · 디자인 커리어
 
 > **English summary** — A personal job-search agent that gets to know you from your AI chat history. Upload your chats; it asks three short questions, tells you what kind of person and which roles your conversations point to (with evidence), finds 10 matching job postings (Korean market first, tuned for planning, digital product, design and content design roles), scores them with ICE, ranks them S–D, and writes a DOCX report with strengths, weaknesses, blind spots and a 3-day action plan. Save the career file it gives you; next time it won't re-ask what it already knows and starts by asking how your last actions went. No server, nothing collected; the agent reads this repo directly, starting from `START.md` (custom GPT or any AI that can browse). Work in progress. MIT licensed.
 
