@@ -18,7 +18,7 @@ https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/START.m
 첨부한 건 내 AI 대화 기록이야. (이력서·자소서도 있으면 같이 첨부)
 ```
 
-에이전트가 이 레포를 직접 읽고 진행해요. 따로 설치하거나 설정할 것은 없어요. 주소 끝의 `?t=` 꼬리는 AI의 웹 읽기 도구가 예전에 저장해 둔 사본을 주지 않게 하는 장치라 꼭 붙여 주세요. ChatGPT에서 커스텀 GPT로 쓰고 싶다면 [gpt/README.md](gpt/README.md)를 보세요.
+에이전트가 이 레포를 직접 읽고 진행해요. 따로 설치하거나 설정할 것은 없어요. 주소 끝의 `?t=` 꼬리는 AI의 웹 읽기 도구가 예전에 저장해 둔 사본을 주지 않게 하는 장치라 꼭 붙여 주세요.
 
 ## 준비물
 
@@ -77,7 +77,7 @@ https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/START.m
 │   ├── ko/                   한국어 질문·문구·리포트·지원 전략 질문
 │   └── en/                   영어 (준비 중)
 ├── sources.yml               공고 사이트 목록과 접근 테스트 기록
-├── gpt/                      커스텀 GPT로 쓸 때의 설정과 확인 순서
+├── gpt/                      테스트 확인 순서 (커스텀 GPT 설정은 더 이상 지원하지 않음)
 ├── examples/                 테스트용 가상 자료 (대화, 이력서, 자소서, 포트폴리오 PDF, 커리어 파일)
 └── docs/                     공고 사이트 접근 테스트 방법
 ```
