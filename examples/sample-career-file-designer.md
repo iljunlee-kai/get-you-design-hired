@@ -1,10 +1,10 @@
 # 커리어파일 (테스트용 가상 데이터 · 지원 결과 이어가기)
 
-> 가상 인물의 커리어 파일이에요. `sample-conversation-designer.md`와 같은 인물이 2주 뒤 다시 상담하러 온 상황이에요. 실제 인물·회사와 무관해요.
+> 가상 인물의 커리어 파일이에요. `sample-conversation-designer.md`와 같은 인물이 지원 2주쯤 뒤 다시 상담하러 온 상황이에요. 실제 인물·회사와 무관해요.
 
 ```career-file
 version: 2
-updated: 2026-10-25
+updated: 2026-10-05
 language: ko
 
 profile:
@@ -41,7 +41,7 @@ postings:
       - {text: 패키지 기획·개발, type: must, status: met, evidence: "이력서: 패키지 3종"}
       - {text: 신규 브랜드 런칭 경험, type: must, status: unmet, evidence: "이력서에 없음"}
     status: 지원
-    applied: 2026-10-28
+    applied: 2026-10-08
     outcomes: []
   - id: P2
     company: 샘플리테일
@@ -54,7 +54,7 @@ postings:
       - {text: 브랜드 런칭·리브랜딩 리드 경험, type: must, status: partial, evidence: "이력서: 리뉴얼 캠페인 참여"}
       - {text: 공간 브랜딩, type: pref, status: unmet}
     status: 지원
-    applied: 2026-10-30
+    applied: 2026-10-10
     outcomes: []
   - id: P3
     company: 샘플스튜디오
@@ -65,13 +65,13 @@ postings:
     outcomes: []
 
 next_actions:
-  - {id: A1, text: 샘플코스메틱 간편 지원 제출, due: 2026-10-28, status: 미확인, result: ""}
-  - {id: A2, text: 샘플리테일 지원서 제출, due: 2026-10-30, status: 미확인, result: ""}
-  - {id: A3, text: 하루한칸 화면을 사용자 2명에게 보여 주고 막힌 지점 기록, due: 2026-11-02, status: 미확인, result: ""}
+  - {id: A1, text: 샘플코스메틱 간편 지원 제출, due: 2026-10-08, status: 미확인, result: ""}
+  - {id: A2, text: 샘플리테일 지원서 제출, due: 2026-10-10, status: 미확인, result: ""}
+  - {id: A3, text: 하루한칸 화면을 사용자 2명에게 보여 주고 막힌 지점 기록, due: 2026-10-12, status: 미확인, result: ""}
 
 learnings: []
 
 history:
-  - 2026-10-25: 첫 리포트, BX 디자이너 공고 10개
-  - 2026-10-25: 샘플코스메틱 지원 전략
+  - 2026-10-05: 첫 리포트, BX 디자이너 공고 10개
+  - 2026-10-05: 샘플코스메틱 지원 전략
 ```

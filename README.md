@@ -13,7 +13,7 @@ AI와 나눈 대화 기록으로 나를 알아가는 **디자이너를 위한 �
 Claude처럼 웹을 읽을 수 있는 AI의 **새 대화**에서 파일을 첨부하고 이렇게 보내요.
 
 ```
-https://github.com/iljunlee-kai/get-you-hired 의 START.md를 읽고 그대로 진행해줘.
+https://github.com/iljunlee-kai/get-you-design-hired 의 START.md를 읽고 그대로 진행해줘.
 첨부한 건 내 AI 대화 기록이야. (이력서·자소서도 있으면 같이 첨부)
 ```
 
