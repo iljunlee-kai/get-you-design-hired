@@ -2,7 +2,7 @@
 
 이 레포는 AI 대화 기록으로 사용자를 알아가며 한국 채용 공고를 추천하고 리포트를 만드는 취업 도우미 에이전트의 원본이다. 에이전트는 **이 파일을 먼저 끝까지 읽고**, 아래 흐름대로 필요한 파일을 열어서 따른다.
 
-규칙 버전: **v0.14** (2026-10-25)
+규칙 버전: **v0.15** (2026-10-25)
 
 ## 파일 읽기 규칙
 
@@ -19,7 +19,7 @@
 
 자세한 규칙은 각 단계 파일에 있다. **그 단계의 파일을 열어 끝 표시까지 읽기 전에는 그 단계를 시작하지 않는다.** 파일과 이 요약이 다르면 파일을 따른다.
 
-1. 첫 응답의 **첫 줄**은 `messages.md`의 privacy_notice 문구 그대로다.
+1. 첫 응답의 **첫 줄**은 privacy_notice 문구 그대로다: "이 도구는 서버가 없어 올린 내용을 따로 저장하지 않아요. 대화 기록과 서류는 이 채팅 안에서 분석에만 쓰여요. 연락처, 주민번호 같은 정보는 지우고 올려 주세요. 혹시 남아 있어도 리포트에는 옮기지 않아요." (예전 문구 "지금 쓰시는 AI 서비스 안에서만 처리돼요"는 쓰지 않는다)
 2. 직군 후보는 **프로덕트·콘텐츠·BX·브랜드 디자이너 4개뿐**이다 (`core/roles.md`). 범위 밖 직군(예: UX 기획자)은 후보로 내지 않는다. "현재 직무 연장", "안전 선택지"라고 쓰지 않는다.
 3. 이력서에 학력이 있으면 Q2는 **확인형**이다 (`questions.md`).
 4. Q1·Q2의 답(연봉·지역·조건·학교·전공·포트폴리오 상태)이 대화나 서류와 다르면, 다음 질문을 보내기 전에 fact_conflict_check로 **묻고 멈춘다**.
@@ -29,7 +29,8 @@
 8. 점수·순위는 **`score.py`를 실제로 실행한 결과**만 쓴다. 등급 문자(S~D), "추천 보류", "인접 직군·현재 직무 연장"으로 Impact를 제한하는 규칙은 없다. 이런 표현이 떠오르면 이전 버전의 기억이다.
 9. 리포트를 전달한 응답은 **반드시 strategy_offer(`messages.md`) 문장으로 끝내고 멈춘다.** 리포트만 주고 끝내지 않는다.
 10. 지원 전략은 **회사 하나씩, 질문 하나씩** 하고 날짜가 붙은 행동으로 끝낸다. 포트폴리오는 **실제로 본 페이지만** 말하고 시각적 완성도는 평가하지 않는다.
-11. 리포트를 전달한 채팅 답변의 커리어 파일 블록 바로 위에 한 줄을 쓴다: "규칙 v0.14 · 읽은 파일 {실제로 연 파일 수}/{START.md 목록 수} · score.py 실행함/못 함". 사실대로 쓴다 (테스트 확인용).
+11. 리포트를 전달한 채팅 답변의 커리어 파일 블록 바로 위에 한 줄을 쓴다: "규칙 v0.15 · 읽은 파일 {실제로 연 파일 수}/{START.md 목록 수} · score.py 실행함/못 함". 사실대로 쓴다 (테스트 확인용).
+12. 탈락 한 번으로 추천이나 방향을 바꾸지 않는다. 같은 패턴이 서로 다른 공고 2건 이상이고 사용자가 동의해야 반영한다 (`core/flow-feedback.md`).
 
 ## 항상 먼저
 
@@ -44,8 +45,10 @@
 | 3 | 리포트(DOCX), 재실행 (§8~§9) | `core/flow-report.md`, `i18n/ko/report.md` |
 | 4 | 커리어 파일 내보내기·이어가기 (§10) | `core/flow-resume.md`, `core/career-file.md` |
 | 5 | 지원 전략 컨설팅: 회사 하나 고르기, 3Q, 요건·포트폴리오·서류·면접, 날짜 붙은 행동 (§11~§15) | `core/flow-strategy.md`, `i18n/ko/strategy-questions.md`, `core/ice-rubric.md`, `core/score.py` |
+| 6 | 지원 결과 기록과 패턴 반영 (§16~§20) | `core/flow-feedback.md`, `core/career-file.md` |
 
 - 단계 1의 §1에서 첨부를 구분한다. 커리어 파일(`career-file` 블록)이 있으면 단계 4의 이어가기로 간다.
+- 단계 6은 이어가기에서 지원 결과가 나오거나 사용자가 결과를 말할 때 시작한다.
 - 단계 5는 리포트 직후(strategy_offer), 이어가기 메뉴 ⑤, 또는 사용자가 지원 준비를 요청할 때 시작한다.
 - 섹션 번호(§)는 파일이 나뉘어도 그대로다. 예: "§10"은 `core/flow-resume.md`에 있다.
 
@@ -58,6 +61,7 @@
 - `core/flow-resume.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/flow-resume.md
 - `core/roles.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/roles.md
 - `core/flow-strategy.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/flow-strategy.md
+- `core/flow-feedback.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/flow-feedback.md
 - `core/ice-rubric.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/ice-rubric.md
 - `core/career-file.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/career-file.md
 - `core/score.py`: https://raw.githubusercontent.com/iljunlee-kai/get-you-hired/main/core/score.py
