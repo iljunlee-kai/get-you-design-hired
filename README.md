@@ -13,11 +13,12 @@ AI와 나눈 대화 기록으로 나를 알아가는 **디자이너를 위한 �
 Claude처럼 웹을 읽을 수 있는 AI의 **새 대화**에서 파일을 첨부하고 이렇게 보내요.
 
 ```
-https://github.com/iljunlee-kai/get-you-design-hired 의 START.md를 읽고 그대로 진행해줘.
+https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/START.md?t=오늘날짜와시각 을 읽고 그대로 진행해줘.
+(주소 끝 ?t= 뒤에는 지금 날짜·시각을 숫자로 넣어서 열어줘. 예: ?t=202610251530)
 첨부한 건 내 AI 대화 기록이야. (이력서·자소서도 있으면 같이 첨부)
 ```
 
-에이전트가 이 레포를 직접 읽고 진행해요. 따로 설치하거나 설정할 것은 없어요. ChatGPT에서 커스텀 GPT로 쓰고 싶다면 [gpt/README.md](gpt/README.md)를 보세요.
+에이전트가 이 레포를 직접 읽고 진행해요. 따로 설치하거나 설정할 것은 없어요. 주소 끝의 `?t=` 꼬리는 AI의 웹 읽기 도구가 예전에 저장해 둔 사본을 주지 않게 하는 장치라 꼭 붙여 주세요. ChatGPT에서 커스텀 GPT로 쓰고 싶다면 [gpt/README.md](gpt/README.md)를 보세요.
 
 ## 준비물
 
