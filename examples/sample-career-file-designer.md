@@ -29,6 +29,9 @@ story:
   metacognition: {text: "강점은 기획을 먼저 하고 기준을 세우는 힘과 패키지를 인쇄 감리까지 끝낸 경험입니다. 하이 퀄리티 디자인은 완성 기준을 먼저 정하고 감리까지 마친 사례로 보여 줍니다.", evidence: [Q3, 이력서], status: 확인됨}
   consistency: {text: "매체는 달랐지만 매번 여러 접점이 하나의 브랜드로 보이게 하는 기준을 만드는 데 가장 많은 시간을 썼습니다.", evidence: [이력서, 대화 3], status: 확인됨}
 
+doc_flags:
+  - {claim: "포트폴리오 3쪽·이력서: 사용자 리서치·5명 인터뷰", source: 포트폴리오, conflict: "대화 7: 인터뷰 경험 없음", status: 미해결, user_note: ""}
+
 postings:
   - id: P1
     company: 샘플코스메틱
