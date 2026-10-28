@@ -1,6 +1,6 @@
 # 단계 6: 지원 결과 피드백 (flow-feedback.md)
 
-규칙 버전: v0.20
+규칙 버전: v0.21
 
 `START.md` 흐름의 단계 6이다. 섹션 번호는 §16부터다. 문구는 `i18n/ko/messages.md`의 outcome_* 항목을 쓴다.
 

@@ -7,3 +7,6 @@ docs/PRD.md
 
 # Generated reports (test outputs)
 examples/*.docx
+
+# PRD 이전 본문 보관 (비공개)
+docs/PRD-archive-*.md

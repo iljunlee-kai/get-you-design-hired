@@ -1,6 +1,6 @@
 # get-you-design-hired · 디자인 커리어
 
-> **English summary** — A personal job-search agent for designers that gets to know you from your AI chat history. Give an AI assistant (Claude or any AI that can browse) this repo link with your chats, and optionally your resume, cover letter and portfolio. It asks three short questions, shows what kind of person your conversations point to (with evidence), finds 10 Korean job postings for four design roles (product, content, BX, brand), ranks them 1–10 with ICE scoring and a requirement checklist, and writes a DOCX report with strengths, weaknesses, blind spots and a 3-day plan. Then it consults on your top 1–3 companies one at a time: a 3Q story (direction, metacognition, consistency), requirement gaps, portfolio order, document fixes, likely interview questions, and one dated action. Save the career file it gives you; next time it starts by asking how that action went. No server, nothing collected. Work in progress. MIT licensed.
+> **English summary** — A personal job-search agent for designers that gets to know you from your AI chat history. Give an AI assistant (Claude or any AI that can browse) this repo link with your chats, and optionally your resume, cover letter and portfolio. It asks three short questions, shows what kind of person your conversations point to (with evidence), finds 10 Korean job postings for four design roles (product, content, BX, brand), ranks them 1–10 with ICE scoring and a requirement checklist, and writes a DOCX report with strengths, weaknesses, blind spots and what to check first. Then it consults on your top 1–3 companies one at a time: a 3Q story (direction, metacognition, consistency), requirement gaps, portfolio order, document fixes, likely interview questions, and one dated action. Save the career file it gives you; next time it starts by asking how that action went. No server, nothing collected. Work in progress. MIT licensed.
 
 AI와 나눈 대화 기록으로 나를 알아가는 **디자이너를 위한 나만의 취업 도우미**예요. 대화에서 보이는 내 모습과 어울리는 직군을 짚어주고, 나에게 맞는 채용 공고 10개의 순서와 리포트(DOCX)를 만들어요. 그다음 1~3위 회사를 하나씩 골라 서류·포트폴리오·면접까지 같이 준비하고, 오늘 할 일을 날짜까지 정해요. 저장해 둔 커리어 파일을 다시 올리면 처음부터 묻지 않고, 지난번에 하기로 한 일부터 이어서 상담해요.
 
@@ -34,7 +34,7 @@ https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/START.m
 
 1. **자료 읽기와 질문 3개.** 대화 기록(과 서류)을 끝까지 읽은 뒤, 원하는 직군·연봉·지역·조건 / 학력 / 잘하는 것·어려운 것을 하나씩 물어요. 이력서에 있는 학력은 확인만 해요. 답이 대화나 서류와 다르면 어느 쪽이 맞는지 한 번 확인해요.
 2. **공고 10개와 순위.** 직군 4개의 실제 공고를 찾아 마감·모집 상태를 페이지에서 읽은 값만 써요. 공고의 요건을 항목별로 내 경험과 대조해 점수를 매기고 1~10위를 정해요. 1~3위에는 모집 중이 확인되고 요건을 읽은 공고만 들어가요.
-3. **리포트 (DOCX).** 장점·단점·맹점("대화에서 보이는 당신은 ~한 사람이에요"), 서류 점검, 공고 표, 1~3위 요건 매칭표, 3일 투두가 들어가요.
+3. **리포트 (DOCX).** 장점·단점·맹점("대화에서 보이는 당신은 ~한 사람이에요"), 서류 점검, 공고 표, 1~3위 요건 매칭표, 먼저 확인할 것가 들어가요.
 4. **지원 전략 컨설팅.** 1~3위 중 한 회사를 골라요.
    - **3Q로 내 이야기 정리** (처음 한 번): 방향, 강점과 약점(메타인지), 왜 이 분야인지(일관성). 에이전트가 근거를 붙인 초안을 보여주고, 나는 고치기만 해요.
    - **회사별 준비**: 확인이 필요한 요건 질문, 부족한 요건의 대응 방법, 포트폴리오 사례 순서, 서류 문장 수정, 예상 면접 질문, 지원 경로.
