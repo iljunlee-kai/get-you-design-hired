@@ -1,6 +1,6 @@
 # 단계 5: 지원 전략 컨설팅 (flow-strategy.md)
 
-규칙 버전: v0.21
+규칙 버전: v0.22
 
 `START.md` 흐름의 단계 5다. 섹션 번호(§)는 앞 단계에 이어서 쓴다. 질문 문장과 출력 형식은 `i18n/ko/strategy-questions.md`에 있다.
 

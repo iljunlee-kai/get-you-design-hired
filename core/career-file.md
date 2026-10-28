@@ -1,6 +1,6 @@
 # 커리어 파일 형식 (career-file.md)
 
-규칙 버전: v0.21
+규칙 버전: v0.22
 
 세션이 바뀌어도 상담을 이어가기 위해 사용자가 들고 다니는 파일이다. 도구는 이 파일을 저장하지 않는다. 마지막에 출력하면 사용자가 `.md`로 저장하고, 다음에 올린다. 쓸수록 도구가 사용자를 더 잘 아는 상태로 시작하게 하는 것이 목적이다.
 
@@ -36,6 +36,7 @@ profile:
   portfolio: 준비중                # 있음 / 준비중 / 없음, 사용자가 말한 대로
   strengths: [비주얼 감각]          # 사용자가 말한 그대로
   weaknesses: [발표]               # 사용자가 말한 그대로
+  targets: []                     # 사용자가 미리 찾아봤거나 꼭 가고 싶다고 한 회사·공고 링크
   confirmed: [roles, salary, regions, dealbreakers, education, strengths, weaknesses]   # 사용자가 직접 말했거나 맞다고 한 칸. 이 칸은 다시 묻지 않는다
 
 portrait:                          # "대화에서 보이는 나". 도구의 해석이라 기본은 추정
@@ -71,6 +72,7 @@ postings:
     position: 포지션
     link: https://...
     rank: 1                         # 이번 후보 중 순위 (1~10)
+    source: 검색                    # 검색 / 사용자 지정 (targets에서 온 공고)
     role: 프로덕트 디자이너
     jd_source: 공고 페이지       # 공고 페이지 / 사용자가 붙여넣음 / 회사 채용 페이지. 1~3위만 아래 칸을 채운다
     years_required: 3
