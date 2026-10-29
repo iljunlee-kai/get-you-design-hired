@@ -2,14 +2,14 @@
 
 이 레포는 디자이너의 취업 비서 에이전트의 원본이다. 사용자가 다시 설명하지 않아도 공고부터 서류, 일정, 지원 결과까지 이어서 챙긴다. 대화 기록과 서류는 사용자를 다시 묻지 않고 파악하는 재료다. 에이전트는 **이 파일을 먼저 끝까지 읽고**, 아래 흐름대로 필요한 파일을 열어서 따른다.
 
-규칙 버전: **v0.22** (2026-10-28)
+규칙 버전: **v0.23** (2026-10-30)
 
 ## 파일 읽기 규칙
 
 - **버전 확인**: 지침 파일마다 첫 줄 아래에 `규칙 버전: vX.XX`가 있다. 연 파일의 버전이 이 파일의 버전과 다르면 오래된 사본(캐시)이다. 주소 끝에 `?v=` 와 아무 숫자를 붙여 다시 연다. 그래도 다르면 사용자에게 알리고 이 파일(START.md)의 "꼭 지킬 것"을 우선한다.
 
 - 파일은 아래 목록의 원문 주소를 **`?v=` 꼬리까지 그대로** 연다. 꼬리는 웹 읽기 도구가 예전 사본(캐시)을 주지 않게 하는 장치다. 꼬리 없이 열거나 기억한 주소로 열지 않는다.
-- 원문 주소 기본형: `https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/`?v=0.22 + 경로 (아래 목록).
+- 원문 주소 기본형: `https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/`?v=0.23 + 경로 (아래 목록).
 - **브랜치 맞추기**: 이 파일을 `/stable/` 주소로 열었으면, 아래 목록의 모든 주소에서 `/main/`을 `/stable/`로 바꿔서 연다. `/main/`으로 열었으면 그대로 연다. 두 브랜치의 파일을 섞어 읽지 않는다.
 - 모든 지침 파일의 마지막 줄은 `<!-- END: 경로 -->`다 (YAML·Python은 `# END: 경로`). **이 줄을 확인하기 전에는 그 파일을 다 읽은 것이 아니다.** 안 보이면 다시 열거나 나눠서 끝까지 읽는다.
 - 필요한 단계가 시작될 때 **직접 열어서 읽은 뒤** 쓴다. 기억이나 짐작으로 대신하지 않는다.
@@ -61,21 +61,21 @@
 
 ## 파일 목록 (원문 주소)
 
-- `core/principles.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/principles.md?v=0.22
-- `core/flow-intake.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-intake.md?v=0.22
-- `core/flow-search-score.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-search-score.md?v=0.22
-- `core/flow-report.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-report.md?v=0.22
-- `core/flow-resume.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-resume.md?v=0.22
-- `core/roles.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/roles.md?v=0.22
-- `core/flow-strategy.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-strategy.md?v=0.22
-- `core/flow-feedback.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-feedback.md?v=0.22
-- `core/ice-rubric.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/ice-rubric.md?v=0.22
-- `core/career-file.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/career-file.md?v=0.22
-- `core/score.py`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/score.py?v=0.22
-- `sources.yml`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/sources.yml?v=0.22
-- `i18n/ko/questions.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/i18n/ko/questions.md?v=0.22
-- `i18n/ko/messages.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/i18n/ko/messages.md?v=0.22
-- `i18n/ko/strategy-questions.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/i18n/ko/strategy-questions.md?v=0.22
-- `i18n/ko/report.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/i18n/ko/report.md?v=0.22
+- `core/principles.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/principles.md?v=0.23
+- `core/flow-intake.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-intake.md?v=0.23
+- `core/flow-search-score.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-search-score.md?v=0.23
+- `core/flow-report.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-report.md?v=0.23
+- `core/flow-resume.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-resume.md?v=0.23
+- `core/roles.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/roles.md?v=0.23
+- `core/flow-strategy.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-strategy.md?v=0.23
+- `core/flow-feedback.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/flow-feedback.md?v=0.23
+- `core/ice-rubric.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/ice-rubric.md?v=0.23
+- `core/career-file.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/career-file.md?v=0.23
+- `core/score.py`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/core/score.py?v=0.23
+- `sources.yml`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/sources.yml?v=0.23
+- `i18n/ko/questions.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/i18n/ko/questions.md?v=0.23
+- `i18n/ko/messages.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/i18n/ko/messages.md?v=0.23
+- `i18n/ko/strategy-questions.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/i18n/ko/strategy-questions.md?v=0.23
+- `i18n/ko/report.md`: https://raw.githubusercontent.com/iljunlee-kai/get-you-design-hired/main/i18n/ko/report.md?v=0.23
 
 <!-- END: START.md -->

@@ -1,4 +1,4 @@
-# 규칙 버전: v0.22
+# 규칙 버전: v0.23
 # 지역별 허용 공고 소스 목록
 # 검색은 이 목록 안에서만 한다. 사이트를 추가/삭제할 때는 이 파일만 고친다.
 #
@@ -15,6 +15,16 @@
 
 # 2026-10-25 Claude 실행: 잡코리아 상세 13건을 열어 마감·모집 상태를 읽음, 업무·자격 상세는 읽지 못함. 원티드는 Claude에서도 접근 거절.
 # 같은 날 직군 리서치: 리멤버·더팀스·인디스워크는 공고 본문(주요업무·자격요건)이 읽힘. 리멤버는 검색 결과에 마감 공고가 많음. 아직 소스 목록에는 넣지 않음.
+
+# ── 새 사이트 추가하는 법 (docs/source-test.md의 "새 사이트 추가하기") ──
+# 1) 아래 형식으로 regions.KR.sources 끝에 넣는다. status는 untested로 시작.
+#      - name: 사이트 이름
+#        domain: example.co.kr
+#        status: untested
+#        how_to_read: "상세 본문을 읽는 방법. 막히면 브라우저 → jd_paste_request"
+#        note: "테스트 날짜와 결과"
+# 2) source-test.md 프롬프트로 상위 3개 공고를 읽고, 1개는 사람이 직접 열어 대조한다.
+# 3) 대조가 맞으면 partial/ok로 올리고 순서를 정한다. 틀리면 blocked.
 
 version: 3
 active_regions: [KR]       # 지금은 한국만 지원. 다른 지역은 deferred_regions에 보관
